@@ -1,0 +1,5 @@
+# Self-mounting bundle patch for dsh-less-error.
+# Installing the package adds this patch to the profile; do not also mount it by hand.
+- insert:
+    - id: less-error
+      name: 'dsh-less-error'

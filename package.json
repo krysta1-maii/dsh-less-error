@@ -1,0 +1,33 @@
+{
+  "name": "dsh-less-error",
+  "version": "0.2.0",
+  "description": "Repair a narrow set of retryable pi-ai failures misclassified as PI_AI_ERROR.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/**/*.js",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "^0.2.2-rc.3"
+  },
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/transport-errors.js",
+    "test": "node --test test/*.test.js"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.1.0",
+    "@deepseek-ai/dsh-llm": "^0.2.2-rc.3"
+  }
+}
